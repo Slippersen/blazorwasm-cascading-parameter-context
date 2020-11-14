@@ -1,5 +1,4 @@
 @inherits LayoutComponentBase
-@using BlazorWasm5.Shared.Contexts
 
 <div class="page">
     <div class="sidebar">
@@ -12,9 +11,7 @@
         </div>
 
         <div class="content px-4">
-            <CascadingParameterContext>
-                @Body
-            </CascadingParameterContext>
+            @Body
         </div>
     </div>
 </div>
