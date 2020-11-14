@@ -1,0 +1,28 @@
+@page "/counter"
+@using Shared.Contexts
+
+<h1>Counter</h1>
+
+<p>Current count: @currentCount</p>
+<p>Context param: @CascadingParameterContext.CascadingStringParameter</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Increment count</button>
+
+<button class="btn btn-primary" @onclick="ChangeCascadingParameter">Change cascading parameter context value</button>
+
+@code {
+    [CascadingParameter]
+    protected CascadingParameterContext CascadingParameterContext { get; set; }
+
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+
+    private void ChangeCascadingParameter()
+    {
+        CascadingParameterContext.SetCascadingParameter("changed");
+    }
+}

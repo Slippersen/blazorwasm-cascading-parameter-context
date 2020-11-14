@@ -1,0 +1,20 @@
+@inherits LayoutComponentBase
+@using BlazorWasm5.Shared.Contexts
+
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <div class="main">
+        <div class="top-row px-4">
+            <a href="http://blazor.net" target="_blank" class="ml-md-auto">About</a>
+        </div>
+
+        <div class="content px-4">
+            <CascadingParameterContext>
+                @Body
+            </CascadingParameterContext>
+        </div>
+    </div>
+</div>

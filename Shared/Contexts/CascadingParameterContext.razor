@@ -1,0 +1,22 @@
+@* Provide self as cascading value to all descending components *@
+<CascadingValue Value="this">
+    @ChildContent
+</CascadingValue>
+
+@code {
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        Console.WriteLine(CascadingStringParameter);
+    }
+
+    public string CascadingStringParameter = "unchanged";
+
+    public void SetCascadingParameter(string newValue)
+    {
+        CascadingStringParameter = newValue;
+        StateHasChanged();
+    }
+}
